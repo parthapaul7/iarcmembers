@@ -17,7 +17,7 @@ function getData() {
 
         if (e.ROLE.includes("Secretary")) {
           secretary += ` <div class="card" style="width: 20rem;">
-            <img src="" class="card-img-top" alt="...">
+            <img src="images/${e.NAME}.jpeg" class="card-img-top" alt="...">
             <div class="card-body">
              <h5 class="card-title">${e.NAME}</h5>
             <p class="card-text">${e.ROLE}</p>
