@@ -1,34 +1,43 @@
+const secCon = document.getElementById("sCotainer");
+const memCon = document.getElementById("mContainer");
 
-const container= document.getElementById("container");
+let secretary = "";
+let members = "";
 
-let html="";
+function getData() {
+  let count = 0;
+  url = "https://sheet.best/api/sheets/ca077534-54f7-42a7-ad9c-ac1668215f96";
+  fetch(url, { method: "get" })
+    .then((response) => {
+      return response.json();
+    })
+    .then((info) => {
+      info.forEach((e) => {
+        console.log(e);
 
-
-function getData(){
-    url="https://sheet.best/api/sheets/ca077534-54f7-42a7-ad9c-ac1668215f96";
-    fetch(url,{method:"get"}).then((response)=>{
-
-        return response.json();
-    }).then((info)=>{
-
-
-        info.forEach(e => {
-            console.log(e);
-
-    
-            html+=` <div class="card" style="width: 20rem;">
+        if (e.ROLE.includes("Secretary")) {
+          secretary += ` <div class="card" style="width: 20rem;">
             <img src="" class="card-img-top" alt="...">
             <div class="card-body">
              <h5 class="card-title">${e.NAME}</h5>
             <p class="card-text">${e.ROLE}</p>
-             
             </div>
             </div>`;
-            
-            container.innerHTML=html;
-            
-        });
-        
+
+          count++;
+        } else {
+          members += ` <div class="card" style="width: 20rem;">
+                <div class="card-body">
+                 <h5 class="card-title">${e.NAME}</h5>
+                <p class="card-text">${e.ROLE}</p>
+                </div>
+                </div>`;
+        }
+      });
+
+      secCon.innerHTML = secretary;
+
+      memCon.innerHTML = members;
     });
 }
 
