@@ -1,11 +1,11 @@
 
-const container= document.getElementById("members");
+const container= document.getElementById("container");
 
-let html=` <tr> <th> NAMES </th> <th> STUDY AT </th> <th> CONTACT ME </th></tr>`;
+let html="";
 
 
 function getData(){
-    url="https://sheet.best/api/sheets/bf16f39a-8d52-4512-aaa7-16b0c2ffc1da";
+    url="https://sheet.best/api/sheets/ca077534-54f7-42a7-ad9c-ac1668215f96";
     fetch(url,{method:"get"}).then((response)=>{
 
         return response.json();
@@ -14,12 +14,22 @@ function getData(){
 
         info.forEach(e => {
             console.log(e);
-            html+=` <tr> <td>${e.name} </td> <td>  <img src="${e.img}" alt="Girl in a jacket" width="500" height="600"></td> <td>${e.phone_number} </td></tr>`;
+
+    
+            html+=` <div class="card" style="width: 20rem;">
+            <img src="" class="card-img-top" alt="...">
+            <div class="card-body">
+             <h5 class="card-title">${e.NAME}</h5>
+            <p class="card-text">${e.ROLE}</p>
+             
+            </div>
+            </div>`;
             
             container.innerHTML=html;
+            
         });
         
     });
 }
 
-// getData();
+getData();
