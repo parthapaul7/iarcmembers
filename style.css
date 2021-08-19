@@ -1,0 +1,20 @@
+.imgContainer{
+    margin: 50px;
+    padding: 50px;
+    height: 30vh;
+    background-color: cyan;
+}
+
+.container{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.card-img-top{
+    height: 8rem;
+    width: 8rem;
+    border-radius: 50%;
+    align-self: center;
+}
