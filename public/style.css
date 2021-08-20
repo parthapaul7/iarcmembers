@@ -12,6 +12,10 @@
     gap: 20px;
 }
 
+img{
+    margin: auto;
+}
+
 .card-img-top{
     height: 9rem;
     max-width: 8rem;
@@ -42,3 +46,5 @@ span{
 .card{
     border: 1.5px solid gray;
 }
+
+
