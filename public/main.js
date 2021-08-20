@@ -53,10 +53,11 @@ function getData() {
           console.log(index);
       
           secretary += ` <div class="card" style="width: 20rem;">
-            <div class="cardImg"></div>
+            <div class="cardImg">
+            <img src="images/loading.gif".jpeg" class="card-img-top" alt="..." ></div>
             <div class="card-body">
              <h5 class="card-title">${e.NAME}</h5>
-            <p class="card-text">${e.ROLE}</p>
+            <p class="card-text">${e.ROLE}<br>Contact- ${e.WHATSAPPNO}</p>
             </div>
             </div>`;
 
