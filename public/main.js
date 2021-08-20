@@ -1,6 +1,7 @@
 const secCon = document.getElementById("sCotainer");
 const memCon = document.getElementById("mContainer");
 
+let names=[];
 
 
 //firebase cutiyapa start
@@ -11,15 +12,19 @@ let storageRef = firebase.storage().ref();
 
   storageRef.child('images/').listAll().then((result) => {
     let x= document.getElementsByClassName("cardImg");
-    result.items.forEach((element,index) => {
+    result.items.forEach((element) => {
       element.getDownloadURL().then(function(url){
         // console.log(url);
         
         console.log(url);
-        
+        for(let i=0;i<names.length;i++){
 
-        x[index].innerHTML= `<img src="${url}".jpeg" class="card-img-top" alt="..." >`
-        
+        if(url.includes(names[i].slice(0,4))){
+          console.log("yes",names[i].slice(0,5));
+          
+        x[i].innerHTML= `<img src="${url}".jpeg" class="card-img-top" alt="..." >`
+        }
+        }
   
       })
       console.log("before printing");
@@ -61,7 +66,7 @@ function getData() {
             </div>
             </div>`;
 
-          count++;
+          names.push(e.NAME);
         } else {
           members += ` <div class="card" style="width: 20rem;">
                 <div class="card-body">
