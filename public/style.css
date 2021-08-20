@@ -1,8 +1,13 @@
+*{
+    color: white;
+}
+
 .imgContainer{
     margin: 50px;
     padding: 50px;
     height: 30vh;
-    background-color: cyan;
+    background-color: rgb(24, 48, 89);
+  
 }
 
 .container{
@@ -11,10 +16,15 @@
     flex-wrap: wrap;
     gap: 20px;
 }
-
 img{
     margin: auto;
 }
+
+.cardImg{
+    margin: auto;
+    padding: 20px;
+}
+
 
 .card-img-top{
     height: 9rem;
@@ -32,7 +42,7 @@ h4{
 }
 span{
     padding: 10px;
-    background-color: rgb(248, 201, 130);
+    background-color: #bd3d20;
     padding: 0.5%;
     border-radius: 10px;
     
@@ -40,7 +50,7 @@ span{
 }
 .card-body{
     text-align: center;
-    background-color: rgb(187, 226, 226);
+    background-color: rgb(24, 48, 89);
 }
 
 .card{

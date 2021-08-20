@@ -4,50 +4,21 @@ const memCon = document.getElementById("mContainer");
 
 
 //firebase cutiyapa start
-let names=[];
-let file = document.getElementById('demo');
-let picUrl=[];
+
+
 let storageRef = firebase.storage().ref();
 
-file.addEventListener('change',function(){
-  // console.log(e.target.files);
-  
-  
-  for(let i=0;i<e.target.files.length;i++){
-  let imgFile= e.target.files[i];
-  let storageRef = firebase.storage().ref("images/"+imgFile.name);
-  // let task=storageRef.put(imgFile);
-  
-  task.on('state_changed',function progres(snap){
-  
-  console.log(snap.bytesTransferred);
-  
-  });
-  
-  console.log("click called");
-  }
-  
-  
-  })
 
   storageRef.child('images/').listAll().then((result) => {
-    result.items.forEach(element => {
-      // console.log(element);
+    let x= document.getElementsByClassName("cardImg");
+    result.items.forEach((element,index) => {
       element.getDownloadURL().then(function(url){
         // console.log(url);
         
-        picUrl.push(url);
         console.log(url);
         
-        
-        for(let i=0;i<picUrl.length;i++){
-          
-          if(picUrl[i].includes(names.slice(0,5))){ 
-            
-            
-          }
 
-        }
+        x[index].innerHTML= `<img src="${url}".jpeg" class="card-img-top" alt="..." >`
         
   
       })
@@ -55,6 +26,7 @@ file.addEventListener('change',function(){
      
     });
     
+  
     
   })
 
@@ -79,10 +51,9 @@ function getData() {
 
         if (e.ROLE.includes("Secretary")) {
           console.log(index);
-          console.log("length of picUrl:",picUrl.length);
       
           secretary += ` <div class="card" style="width: 20rem;">
-            <img src=" ".jpeg" class="card-img-top" alt="...">
+            <div class="cardImg"></div>
             <div class="card-body">
              <h5 class="card-title">${e.NAME}</h5>
             <p class="card-text">${e.ROLE}</p>
@@ -109,7 +80,7 @@ function getData() {
 getData();
 
 
-// firebase 
+
 
 
 
